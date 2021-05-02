@@ -27,10 +27,24 @@ def verifyLenSudoku(arraySudoku):
             return True
     return False
 
-# Validación de formato longitud de sudoku
-print(verifyLenSudoku(arraySudoku))
+
+# Verifica si los elementos del sudoku son numéricos
+def verifyArrayNumbers(arraySudoku):
+    for i in arraySudoku:
+        for j in i:
+            try:
+                int(j)
+            except ValueError:
+                return False
+    return True
 
 
+# Validación general del sudoku
+def validateSudoku(arraySudoku):
+    return verifyLenSudoku(arraySudoku) and verifyArrayNumbers(arraySudoku)
+
+
+print(validateSudoku(arraySudoku))
     
 
 
