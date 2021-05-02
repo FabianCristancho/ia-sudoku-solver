@@ -13,6 +13,20 @@ with open("sudoku.txt") as sudokuFile:
     arraySudoku = [line.split(" ") for line in sudokuFile]
     
 
+# print sudoku
+def printsudoku():
+    print("\n\n\n\n\n")
+    for i in range(len(arraySudoku)):
+        line = ""
+        if i == 3 or i == 6:
+            print("---------------------")
+        for j in range(len(arraySudoku[i])):
+            if j == 3 or j == 6:
+                line += "| "
+            line += str(arraySudoku[i][j])+" "
+        print(line)
+
+# ------------------------------- Validaciones -------------------------------------------
 # Verifica que todas las filas tengan una longitud de 9
 def verifyColumnLen(arraySudoku):
     for i in arraySudoku:
@@ -43,7 +57,7 @@ def verifyArrayNumbers(arraySudoku):
 def validateSudoku(arraySudoku):
     return verifyLenSudoku(arraySudoku) and verifyArrayNumbers(arraySudoku)
 
-
+printsudoku()
 print(validateSudoku(arraySudoku))
     
 
